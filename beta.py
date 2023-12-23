@@ -32,7 +32,7 @@ for i in range(180):
 
     fliped_frame = cv2.flip(new_frame, 1)
     fliped_frame[nonzero_x, nonzero_y, :] = nonzero_cat_values
-    fliped_frame = cv2.cvtColor(fliped_frame, cv2.COLOR_RGB2BGR)
+    # fliped_frame = cv2.cvtColor(fliped_frame, cv2.COLOR_RGB2BGR)
 
     output.append(fliped_frame)
 
@@ -40,4 +40,4 @@ for i in range(180):
 clip = mpy.ImageSequenceClip(output, fps=25)
 audio = mpy.AudioFileClip('./selfcontrol_part.wav').set_duration(clip.duration)
 clip = clip.set_audio(audioclip = audio)
-clip.write_videofile('Part-I.mp4', codec='libx264')
+clip.write_videofile('Part-II.mp4', codec='libx264')
